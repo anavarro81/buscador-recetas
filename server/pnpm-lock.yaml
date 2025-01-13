@@ -38,6 +38,9 @@ importers:
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@22.10.5)(typescript@5.7.3)
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
       '@types/cors':
         specifier: ^2.8.17
@@ -727,6 +730,12 @@ packages:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
     engines: {node: '>=6'}
 
+<<<<<<< HEAD
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+
+=======
+>>>>>>> 5d8d997cd6761c8ecc7723b31acf24664707d90b
 snapshots:
 
   '@cspotcode/source-map-support@0.8.1':
@@ -1418,3 +1427,8 @@ snapshots:
   xtend@4.0.2: {}
 
   yn@3.1.1: {}
+<<<<<<< HEAD
+
+  zod@3.24.1: {}
+=======
+>>>>>>> 5d8d997cd6761c8ecc7723b31acf24664707d90b
