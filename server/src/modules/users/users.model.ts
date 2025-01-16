@@ -1,10 +1,21 @@
 import { Schema, model } from "mongoose";
-import { RecipeSchema } from "../recipes/recipes.model";
+import { IRecipeSchema, RecipeSchema } from "../recipes/recipes.model";
+
+export interface User {
+  name: string;
+  email: string;
+  password: string;
+  rol: "user" | "admin";
+  image?: string;
+  favouritesRecipes: IRecipeSchema[];
+  myRecipes: IRecipeSchema[];
+}
 
 const UserSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
+  rol: { type: String, enum: ['user', 'admin'], default: 'user' },
   image: {type: String },
   favouritesRecipes: {type: [RecipeSchema], required: true},
   myRecipes: {type: [RecipeSchema], required: true},
