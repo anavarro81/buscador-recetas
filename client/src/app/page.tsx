@@ -56,13 +56,15 @@ const recetas = [
 export default function Home() {
     return (
         <PageContainer>
-            <Sidebar
+            <Drawer
                 sx={{
                     width: 370,
                     flexShrink: 0,
+
                     "& .MuiDrawer-paper": {
                         width: 370,
                         boxSizing: "border-box",
+                        backgroundColor: "whiteSmoke",
                     },
                 }}
                 variant="permanent"
@@ -70,59 +72,69 @@ export default function Home() {
             >
                 <Box
                     sx={{
-                        display: "flex",
-                        alignItems: "flex-end",
+                        m: 2,
+                        my: 5,
                     }}
                 >
-                    <SearchIcon
+                    <Box
                         sx={{
-                            color: theme.palette.primary.main,
-                            mr: 1,
-                            my: 0.5,
-                            fontSize: 40,
+                            display: "flex",
+                            alignItems: "flex-end",
+                            backgroundColor: "white",
+                            padding: 1,
+                            borderRadius: 2,
                         }}
-                    />
-                    <TextField
-                        id="input-with-sx"
-                        // label="Buscar..."
-                        variant="standard"
-                    />
-                </Box>
-
-                <FilterBox />
-            </Sidebar>
-            <main>
-                {
-                    <>
-                        <Typography
-                            variant="h1"
+                    >
+                        <SearchIcon
                             sx={{
-                                textAlign: "center",
-                                margin: "5% 15% 2% 15%",
+                                color: theme.palette.primary.main,
+                                mx: 1,
+                                // my: 0.5,
+                                fontSize: 30,
                             }}
-                        >
-                            ¡Empieza a crear tu combinacion perfecta!
-                        </Typography>
-                        <Typography variant="h3" sx={{ textAlign: "center" }}>
-                            Usa las etiquetas o el buscador para encontrar lo
-                            que necesitas.
-                        </Typography>
-                    </>
-                }
-                {recetas
-                    ? recetas.map((receta) => (
-                          <RecipeCard
-                              key={receta.title}
-                              title={receta.title}
-                              description={receta.description}
-                              rate={receta.rate}
-                              totalRate={receta.totalRate}
-                              steps={receta.steps}
-                              ingredients={receta.ingredients}
-                          />
-                      ))
-                    : ""}
-            </main>
+                        />
+                        <TextField
+                            id="input-with-sx"
+                            label="Buscar..."
+                            variant="standard"
+                        />
+                    </Box>
+
+                    <FilterBox />
+                </Box>
+            </Drawer>
+
+            {
+                <>
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            textAlign: "center",
+                            margin: "5% 15% 2% 15%",
+                        }}
+                    >
+                        ¡Empieza a crear tu combinacion perfecta!
+                    </Typography>
+                    <Typography variant="h3" sx={{ textAlign: "center" }}>
+                        Usa las etiquetas o el buscador para encontrar lo que
+                        necesitas.
+                    </Typography>
+                </>
+            }
+
+            {recetas
+                ? recetas.map((receta) => (
+                      <RecipeCard
+                          key={receta.title}
+                          title={receta.title}
+                          description={receta.description}
+                          rate={receta.rate}
+                          totalRate={receta.totalRate}
+                          steps={receta.steps}
+                          ingredients={receta.ingredients}
+                      />
+                  ))
+                : ""}
         </PageContainer>
     );
 }

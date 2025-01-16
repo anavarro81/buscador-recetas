@@ -56,7 +56,7 @@ const Ingredients = [
 
 export const FilterBox = () => {
     return (
-        <Card sx={{ maxWidth: "330", backgroundColor: "white" }}>
+        <Card sx={{ maxWidth: "330", py: 5 }}>
             <StyledCardHeader>
                 <StyledIcon />
                 <StyledTextHeader>
