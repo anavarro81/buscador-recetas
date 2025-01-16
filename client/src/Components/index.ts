@@ -1,3 +1,3 @@
-import { TestComponent } from "./TestComponent/TestComponent";
-
-export {TestComponent}
+import { FilterBox } from "./FilterBox/FilterBox";
+import {CardRecipe} from "./CardRecipe"
+export {FilterBox,CardRecipe}
