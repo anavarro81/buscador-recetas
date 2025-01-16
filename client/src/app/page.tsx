@@ -51,8 +51,6 @@ export default function Home() {
     return (
         <PageContainer>
             <SideBar />
-            {
-                <>
                     <Typography
                         variant="h1"
                         sx={{
@@ -66,8 +64,6 @@ export default function Home() {
                         Usa las etiquetas o el buscador para encontrar lo que
                         necesitas.
                     </Typography>
-                </>
-            }
             {recetas
                 ? recetas.map((receta) => (
                       <RecipeCard
