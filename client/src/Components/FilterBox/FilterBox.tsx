@@ -1,17 +1,10 @@
-// import styled from "styled-components";
-//card
-
-import { Box, Card, CardHeader, Chip, styled } from "@mui/material";
-// import styled from "@emotion/styled";
-
-//buttons
+import { Box, Card, Chip, styled, Typography } from "@mui/material";
 
 import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
 import theme from "@/theme/theme";
-// import { Chip } from "@mui/material";
 
 const StyledIcon = styled(RestaurantRoundedIcon)`
-    font-size: 40px;
+    font-size: 50px;
     color: ${theme.palette.primary.main};
     background-color: ${theme.palette.secondary.main};
     border-radius: 50%;
@@ -19,7 +12,7 @@ const StyledIcon = styled(RestaurantRoundedIcon)`
 `;
 const TagsStyle = styled(Box)`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 8px 6px;
     padding: 12px;
@@ -29,6 +22,18 @@ const ChipStyle = styled(Chip)`
     border-color: ${theme.palette.primary.main};
     color: ${theme.palette.primary.main};
     padding: 0px 10px;
+`;
+
+const StyledCardHeader = styled(Box)`
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+`;
+
+const StyledTextHeader = styled(Box)`
+    text-align: center;
 `;
 
 const Ingredients = [
@@ -48,14 +53,19 @@ const Ingredients = [
     { id: 14, name: "Epazote" },
     { id: 15, name: "Tortilla" },
 ];
+
 export const FilterBox = () => {
     return (
-        <Card sx={{ maxWidth: 330 }}>
-            <CardHeader
-                avatar={<StyledIcon />}
-                title="Busca tus ingredientes"
-                subheader="0/40 Ingredientes"
-            />
+        <Card sx={{ maxWidth: "330", backgroundColor: "white" }}>
+            <StyledCardHeader>
+                <StyledIcon />
+                <StyledTextHeader>
+                    <Typography variant="h3">básicos</Typography>
+                    <Typography sx={{ color: "gray" }} variant="body1">
+                        0/30 ingredientes
+                    </Typography>
+                </StyledTextHeader>
+            </StyledCardHeader>
 
             <TagsStyle>
                 {Ingredients.map(({ id, name }) => (

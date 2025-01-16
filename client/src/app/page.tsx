@@ -1,6 +1,16 @@
 "use client";
 import { RecipeCard, FilterBox } from "@/Components";
-import { Container, Drawer, styled, Typography } from "@mui/material";
+import theme from "@/theme/theme";
+import { AccountCircle } from "@mui/icons-material";
+import SearchIcon from "@mui/icons-material/Search";
+import {
+    Box,
+    Container,
+    Drawer,
+    styled,
+    TextField,
+    Typography,
+} from "@mui/material";
 
 const PageContainer = styled(Container)({
     display: "flex",
@@ -10,6 +20,8 @@ const PageContainer = styled(Container)({
     minHeight: "100vh",
     backgroundColor: "whitesmoke",
 });
+
+const Sidebar = styled(Drawer)({});
 
 const recetas = [
     {
@@ -40,31 +52,45 @@ const recetas = [
         ingredients: 1,
     },
 ];
-const drawerWidth = 320;
-// const StyledContainer = styled(Container)({
-//     border: "1px solid red",
-// });
-// const MainStyled = styled.main`
-//     display: grid;
-//     grid-template-columns: 350px 1fr;
-// `;
+
 export default function Home() {
     return (
         <PageContainer>
-            <Drawer
+            <Sidebar
                 sx={{
-                    width: drawerWidth,
+                    width: 370,
                     flexShrink: 0,
                     "& .MuiDrawer-paper": {
-                        width: drawerWidth,
+                        width: 370,
                         boxSizing: "border-box",
                     },
                 }}
                 variant="permanent"
                 anchor="left"
             >
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                    }}
+                >
+                    <SearchIcon
+                        sx={{
+                            color: theme.palette.primary.main,
+                            mr: 1,
+                            my: 0.5,
+                            fontSize: 40,
+                        }}
+                    />
+                    <TextField
+                        id="input-with-sx"
+                        // label="Buscar..."
+                        variant="standard"
+                    />
+                </Box>
+
                 <FilterBox />
-            </Drawer>
+            </Sidebar>
             <main>
                 {
                     <>
