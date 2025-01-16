@@ -1,15 +1,6 @@
-import { Box, Card, Chip, styled, Typography } from "@mui/material";
-
-import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
+import { Box, Card, Chip, Divider, styled, Typography } from "@mui/material";
 import theme from "@/theme/theme";
 
-const StyledIcon = styled(RestaurantRoundedIcon)`
-    font-size: 50px;
-    color: ${theme.palette.primary.main};
-    background-color: ${theme.palette.secondary.main};
-    border-radius: 50%;
-    padding: 7px;
-`;
 const TagsStyle = styled(Box)`
     display: flex;
     justify-content: center;
@@ -36,48 +27,62 @@ const StyledTextHeader = styled(Box)`
     text-align: center;
 `;
 
-const Ingredients = [
-    { id: 1, name: "Corn" },
-    { id: 2, name: "Chili" },
-    { id: 3, name: "Bean" },
-    { id: 4, name: "Avocado" },
-    { id: 5, name: "Nopal" },
-    { id: 6, name: "Tomato" },
-    { id: 7, name: "Onion" },
-    { id: 8, name: "Garlic" },
-    { id: 9, name: "Cilantro" },
-    { id: 10, name: "Lime" },
-    { id: 11, name: "Cheese" },
-    { id: 12, name: "Pumpkin Seed" },
-    { id: 13, name: "Chocolate" },
-    { id: 14, name: "Epazote" },
-    { id: 15, name: "Tortilla" },
-];
+type FilterBoxProps = {
+    title: string;
+    subtitle: string;
+    items: { id: number; name: string }[];
+    Icon: React.ElementType; // Componente del ícono que usará la tarjeta
+};
 
-export const FilterBox = () => {
+export const FilterBox: React.FC<FilterBoxProps> = ({
+    title,
+    subtitle,
+    items,
+    Icon,
+}) => {
     return (
-        <Card sx={{ maxWidth: "330", py: 5 }}>
-            <StyledCardHeader>
-                <StyledIcon />
-                <StyledTextHeader>
-                    <Typography variant="h3">básicos</Typography>
-                    <Typography sx={{ color: "gray" }} variant="body1">
-                        0/30 ingredientes
-                    </Typography>
-                </StyledTextHeader>
-            </StyledCardHeader>
+        <>
+            <Card
+                sx={{
+                    maxWidth: "330",
 
-            <TagsStyle>
-                {Ingredients.map(({ id, name }) => (
-                    <ChipStyle
-                        key={id}
-                        className="mt-5"
-                        variant="outlined"
-                        label={name}
-                        onClick={() => {}}
-                    ></ChipStyle>
-                ))}
-            </TagsStyle>
-        </Card>
+                    py: 1,
+
+                    borderRadius: 2,
+                    boxShadow: "none",
+                }}
+            >
+                <StyledCardHeader>
+                    <Icon
+                        sx={{
+                            fontSize: 70,
+                            color: "primary.main",
+                            backgroundColor: "secondary.main",
+                            borderRadius: "50%",
+                            padding: 2,
+                        }}
+                    />
+                    <StyledTextHeader>
+                        <Typography variant="body1">{title}</Typography>
+                        <Typography variant="caption" sx={{ color: "gray" }}>
+                            {subtitle}
+                        </Typography>
+                    </StyledTextHeader>
+                </StyledCardHeader>
+
+                <TagsStyle>
+                    {items.map(({ id, name }) => (
+                        <ChipStyle
+                            key={id}
+                            className="mt-5"
+                            variant="outlined"
+                            label={name}
+                            onClick={() => {}}
+                        ></ChipStyle>
+                    ))}
+                </TagsStyle>
+            </Card>
+            <Divider />
+        </>
     );
 };
