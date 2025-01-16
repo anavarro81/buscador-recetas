@@ -1,5 +1,5 @@
 "use client";
-import { FilterBox, CardRecipe } from "@/Components";
+import { FilterBox } from "@/Components";
 import styled from "styled-components";
 // import { Container, styled } from "@mui/material";
 
@@ -15,7 +15,6 @@ export default function Home() {
         <div>
             <MainStyled>
                 <FilterBox></FilterBox>
-                <CardRecipe></CardRecipe>
                 {/* <StyledContainer>
                     <TestComponent />
                 </StyledContainer> */}
