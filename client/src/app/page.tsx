@@ -1,6 +1,6 @@
 "use client";
-import { Container, styled, Typography } from "@mui/material";
-import { RecipeCard } from "@/components";
+import { RecipeCard, FilterBox } from "@/Components";
+import { Container, Drawer, styled, Typography } from "@mui/material";
 
 const PageContainer = styled(Container)({
     display: "flex",
@@ -40,7 +40,7 @@ const recetas = [
         ingredients: 1,
     },
 ];
-
+const drawerWidth = 320;
 // const StyledContainer = styled(Container)({
 //     border: "1px solid red",
 // });
@@ -51,17 +51,38 @@ const recetas = [
 export default function Home() {
     return (
         <PageContainer>
+            <Drawer
+                sx={{
+                    width: drawerWidth,
+                    flexShrink: 0,
+                    "& .MuiDrawer-paper": {
+                        width: drawerWidth,
+                        boxSizing: "border-box",
+                    },
+                }}
+                variant="permanent"
+                anchor="left"
+            >
+                <FilterBox />
+            </Drawer>
             <main>
-                <Typography
-                    variant="h1"
-                    sx={{ textAlign: "center", margin: "5% 15% 2% 15%" }}
-                >
-                    ¡Empieza a crear tu combinacion perfecta!
-                </Typography>
-                <Typography variant="h3" sx={{ textAlign: "center" }}>
-                    Usa las etiquetas o el buscador para encontrar lo que
-                    necesitas.
-                </Typography>
+                {
+                    <>
+                        <Typography
+                            variant="h1"
+                            sx={{
+                                textAlign: "center",
+                                margin: "5% 15% 2% 15%",
+                            }}
+                        >
+                            ¡Empieza a crear tu combinacion perfecta!
+                        </Typography>
+                        <Typography variant="h3" sx={{ textAlign: "center" }}>
+                            Usa las etiquetas o el buscador para encontrar lo
+                            que necesitas.
+                        </Typography>
+                    </>
+                }
                 {recetas
                     ? recetas.map((receta) => (
                           <RecipeCard

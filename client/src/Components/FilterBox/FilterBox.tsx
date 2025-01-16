@@ -4,16 +4,16 @@
 import { Box, Card, CardHeader, Chip, styled } from "@mui/material";
 // import styled from "@emotion/styled";
 
-import { orange } from "@mui/material/colors";
 //buttons
 
 import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
+import theme from "@/theme/theme";
 // import { Chip } from "@mui/material";
 
 const StyledIcon = styled(RestaurantRoundedIcon)`
     font-size: 40px;
-    color: ${orange[500]};
-    background-color: ${orange[100]};
+    color: ${theme.palette.primary.main};
+    background-color: ${theme.palette.secondary.main};
     border-radius: 50%;
     padding: 7px;
 `;
@@ -26,8 +26,8 @@ const TagsStyle = styled(Box)`
 `;
 
 const ChipStyle = styled(Chip)`
-    border-color: ${orange[400]};
-    color: ${orange[400]};
+    border-color: ${theme.palette.primary.main};
+    color: ${theme.palette.primary.main};
     padding: 0px 10px;
 `;
 
