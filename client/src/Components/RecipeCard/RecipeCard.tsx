@@ -5,6 +5,7 @@ import {
   CardMedia,
   Typography,
   Rating,
+  styled
 } from "@mui/material";
 
 type RecipeCardProps = {
@@ -16,6 +17,25 @@ type RecipeCardProps = {
   ingredients: number;
 };
 
+const StyledCardContent = styled(CardContent) ({
+  display: "flex",
+  alignItems: "center",
+  gap: "20px",
+  padding: "10px 12px",
+})
+
+const StyledCard = styled(Card)({
+  display: "flex",
+  backgroundColor: "#fff",
+  margin: "10px 0",
+  cursor: "pointer",
+  "&:hover": {
+    transform: "scale(1.1)",
+    transition: "transform 0.2s ease",
+  },
+});
+
+
 export const RecipeCard: React.FC<RecipeCardProps> = ({
   title,
   description,
@@ -25,13 +45,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   ingredients,
 }) => {
   return (
-    <Card
-      sx={{
-        display: "flex",
-        backgroundColor: "#f3f3f3",
-        margin: "10px 0",
-      }}
-    >
+    <StyledCard>
       <CardMedia
         sx={{ width: "300px", height: "auto" }}
         component="img"
@@ -47,33 +61,19 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           maxWidth: "700px",
         }}
       >
-        <CardContent
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            padding: "10px 12px",
-          }}
-        >
+        <StyledCardContent>
           <Typography variant="h4">{title}</Typography>
-          <Rating value={rate} precision={0.5} /> ({totalRate})
-        </CardContent>
+          <Rating readOnly value={rate} precision={0.5} /> ({totalRate})
+        </StyledCardContent>
 
-        <CardContent
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            padding: "10px 12px",
-          }}
-        >
+        <StyledCardContent>
           <Typography variant="body2">📋 {steps} pasos</Typography>
           <Typography variant="body2">🍴 {ingredients} ingredientes</Typography>
-        </CardContent>
+        </StyledCardContent>
         <CardContent sx={{ padding: "10px 12px" }}>
           <Typography variant="body1">{description}</Typography>
         </CardContent>
       </Box>
-    </Card>
+    </StyledCard>
   );
 };

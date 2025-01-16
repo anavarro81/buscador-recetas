@@ -8,6 +8,7 @@ const PageContainer = styled(Container)({
   alignItems: "center",
   minWidth: "100%",
   minHeight: "100vh",
+  backgroundColor: 'whitesmoke'
 });
 
 const recetas = [
