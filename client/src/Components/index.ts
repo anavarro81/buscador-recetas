@@ -1,11 +1,12 @@
 import { FilterBox } from "./FilterBox/FilterBox";
-
 import { TestComponent } from "./TestComponent/TestComponent";
 import { RecipeCard } from "./RecipeCard/RecipeCard";
+import { SideBar } from "./SideBar/SideBar";
 
 
 export { 
-    TestComponent, 
+    TestComponent,
+    SideBar, 
     RecipeCard,
-    FilterBox
+    FilterBox,
 }

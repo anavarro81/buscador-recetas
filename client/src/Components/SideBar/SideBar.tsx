@@ -2,7 +2,7 @@ import { Box, Drawer, TextField } from "@mui/material";
 import theme from "@/theme/theme";
 import SearchIcon from "@mui/icons-material/Search";
 import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
-import { FilterBox } from "@/Components";
+import { FilterBox } from "@/components";
 import { CategoryRounded } from "@mui/icons-material";
 const ingredientes = [
     { id: 1, name: "Maíz" },
@@ -26,7 +26,7 @@ const categorias = [
     { id: 6, name: "comida rapida" },
 ];
 
-export default function Sidebar() {
+export function SideBar () {
     return (
         <Drawer
             sx={{

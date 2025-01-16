@@ -1,13 +1,10 @@
 "use client";
-import { RecipeCard } from "@/Components";
-import Sidebar from "@/Components/Sidebar";
+import { RecipeCard, SideBar } from "@/components";
+
 
 import {
-    Box,
     Container,
-    Drawer,
     styled,
-    TextField,
     Typography,
 } from "@mui/material";
 
@@ -53,7 +50,7 @@ const recetas = [
 export default function Home() {
     return (
         <PageContainer>
-            <Sidebar />
+            <SideBar />
             {
                 <>
                     <Typography
