@@ -1,8 +1,6 @@
-import { Box, Drawer, TextField } from "@mui/material";
-import theme from "@/theme/theme";
-import SearchIcon from "@mui/icons-material/Search";
+import { Box, Drawer } from "@mui/material";
 import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
-import { FilterBox } from "@/Components";
+import { FilterBox, SearchBar } from "@/components";
 import { CategoryRounded } from "@mui/icons-material";
 const ingredientes = [
     { id: 1, name: "Maíz" },
@@ -26,17 +24,13 @@ const categorias = [
     { id: 6, name: "comida rapida" },
 ];
 
-export default function Sidebar() {
+export function SideBar () {
     return (
         <Drawer
-            sx={{
+            sx={{   
                 width: 370,
                 flexShrink: 0,
-                boxShadow: "2px 2px 2px black",
-                my: 0,
-                "& .MuiBox-root": {
-                    my: 0,
-                },
+                my: 2,
                 "& .MuiDrawer-paper": {
                     width: 370,
                     boxSizing: "border-box",
@@ -47,34 +41,15 @@ export default function Sidebar() {
         >
             <Box
                 sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
                     m: 2,
-                    my: 5,
+                    marginTop: '40px',
+                    gap: '10px'
                 }}
             >
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        backgroundColor: "white",
-                        padding: 1,
-                        borderRadius: 2,
-                    }}
-                >
-                    <SearchIcon
-                        sx={{
-                            color: theme.palette.primary.main,
-                            mx: 1,
-                            // my: 0.5,
-                            fontSize: 30,
-                        }}
-                    />
-                    <TextField
-                        id="input-with-sx"
-                        label="Buscar..."
-                        variant="standard"
-                    />
-                </Box>
-
+                <SearchBar />
                 <FilterBox
                     title="Ingredientes"
                     subtitle="0/10 ingredientes"

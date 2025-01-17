@@ -36,13 +36,6 @@ const theme = createTheme({
 
   components: {
     MuiTypography: {},
-    MuiContainer: {
-        styleOverrides: {
-            root: {
-
-}
-        }
-    }
   },
 });
 
